@@ -8,10 +8,10 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
     private final String sexLion;
-    private final boolean hasManeException;
-    public LionParameterizedTest(String sexLion, boolean hasManeException) {
+    private final boolean hasManeLion;
+    public LionParameterizedTest(String sexLion, boolean hasManeLion) {
         this.sexLion = sexLion;
-        this.hasManeException = hasManeException;
+        this.hasManeLion = hasManeLion;
     }
     @Parameterized.Parameters
     public static Object[][] getLionParameters() {
@@ -24,6 +24,6 @@ public class LionParameterizedTest {
     public void isHasManeTest() throws Exception {
         Feline feline = new Feline();
         Lion lion = new Lion(feline, sexLion);
-        Assert.assertEquals(hasManeException, lion.doesHaveMane());
+        Assert.assertEquals(hasManeLion, lion.doesHaveMane());
     }
 }

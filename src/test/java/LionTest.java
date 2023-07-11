@@ -7,21 +7,18 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
+import org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
     @Mock
     Feline feline;
 
-    @Test
-    public void isHasManeExceptionTest() {
-        try {
-            Lion lion = new Lion(feline, "Оно");
-            lion.doesHaveMane();
-        } catch (Exception exception) {
-            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
+    @Test (expected = Exception.class)
+     public void isHasManeExceptionTest() throws Exception {
+        new Lion(feline, "Оно");
         }
-    }
+
     @Test
     public void getKittensTest() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(1);
